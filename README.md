@@ -19,6 +19,7 @@ webpack 3.5.6 版本学习总结
 webpack 的强大功能 调试更简单 => source maps => 打包之后的文件 如果配置了 source maps 可以看到依赖的模块代码
   到底在哪里配置？=> webpack.config.js => devtool: "eval-source-map" => eval-source-map ：偏中小型的一种
   使用eval 打包源文件模块，在同一文件中生成干净的完整的source-map。这个选项可以在不影响构建速度的前提下生成完整的sourcemap，但是对打包后输出的JS文件的   执行具有性能和安全的隐患。再开发阶段这是一个非常好的选项，在生产阶段一定不要启用这个选项对小到中型的项目中，eval-source-map是一个非常好的选项，再次强   调你只应该开发阶段使用它，我们继续对上文新建的webpack.config.js，进行如下配置：
+  
     module.exports = {
       devtool: "eval-source-map",
       // 唯一的入口文件
@@ -28,7 +29,7 @@ webpack 的强大功能 调试更简单 => source maps => 打包之后的文件 
           path : __dirname + '/public',
           filename : 'build_main.js'
       },
-      }
+    }
 （4）代码热更新 => 创建自己的开发测试服务器 webpack 提供一个本地开发服务器，这个服务器是基于node.js不过这个模块需要下载并且依赖一下
   ===> npm i --save-dev webpack-dev-server（版本可能会出现错误需要你手动降低版本 npm i --save-dev webpack-dev-server@2.9.5 ）
   在package.json中配置 ："scripts": { "server": "webpack-dev-server --open"},
@@ -66,8 +67,8 @@ webpack 的强大功能 调试更简单 => source maps => 打包之后的文件 
           // include / exclude 必须处理的文件和屏蔽的文件
           exclude:/node_modules/
       },
-   ]
- }
+    ]
+  }
     
 （6）对css进行打包!!!
   下载:cnpm i --save-dev style-loader css-loader@0.28.11
@@ -93,10 +94,10 @@ webpack 的强大功能 调试更简单 => source maps => 打包之后的文件 
                         },
 
                     }
-              ]
-          }
-  ]  
-}
+                ]
+            }
+        ]  
+    }
     
   在需要打包的JS文件里接收  import 自定义名字 from '文件路径'（例如 ：import mx_css from './todoList.css';）
     在组件里返回:
@@ -133,8 +134,8 @@ webpack 的强大功能 调试更简单 => source maps => 打包之后的文件 
                     }
                 ]
             }
-   ]
- }
+        ]
+     }
     在需要打包的组件js文件里接收 let 变量名 = require('图片路径')（例如 ：let big = require('../image/big.jpg');）
     在data里返回:
     
@@ -142,7 +143,7 @@ webpack 的强大功能 调试更简单 => source maps => 打包之后的文件 
           return {
              big:big,
           }
-   }
+      }
       
     在自定义组件:<img :src="big" alt="">
 
