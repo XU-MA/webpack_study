@@ -1,0 +1,21 @@
+{
+  "name": "webpack_mx",
+  "version": "1.1.0",
+  "description": "这是学习webpack的一天",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack",
+    "server":"webpack-dev-server --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "1529587801@qq.com"
+  },
+  "author": "mx",
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "^3.5.6",
+    "webpack-dev-server": "^2.9.5"
+  }
+}
