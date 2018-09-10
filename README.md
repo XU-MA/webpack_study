@@ -53,6 +53,7 @@ webpack 的强大功能 调试更简单 => source maps => 打包之后的文件 
     安装：cnpm i --save-dev babel-loader babel-core babel-preset-env
   babel-loader ===> ES6 进行转义 ==> (前端的 export 与 export default 规范)
   在webpack.config.js里配置 ： 
+  
     module:{
       rules:[
         {
@@ -71,6 +72,7 @@ webpack 的强大功能 调试更简单 => source maps => 打包之后的文件 
 （6）对css进行打包!!!
   下载:cnpm i --save-dev style-loader css-loader@0.28.11
   写法:在webpack.config.js: 
+  
     module:{
         rules:[
         
@@ -98,6 +100,7 @@ webpack 的强大功能 调试更简单 => source maps => 打包之后的文件 
     
   在需要打包的JS文件里接收  import 自定义名字 from '文件路径'（例如 ：import mx_css from './todoList.css';）
     在组件里返回:
+    
     data(){
           return {
               mx_css : mx_css, 
@@ -107,7 +110,9 @@ webpack 的强大功能 调试更简单 => source maps => 打包之后的文件 
   
 （7）对图片进行打包
   下载:cnpm i --save-dev file-loader url-loader
-  写法:module:{
+  写法:
+  
+  module:{
         rules:[
         
             // 打包图片 file-loader / url-loader
@@ -132,10 +137,12 @@ webpack 的强大功能 调试更简单 => source maps => 打包之后的文件 
  }
     在需要打包的组件js文件里接收 let 变量名 = require('图片路径')（例如 ：let big = require('../image/big.jpg');）
     在data里返回:
+    
       data(){
           return {
              big:big,
           }
-      }
+   }
+      
     在自定义组件:<img :src="big" alt="">
 
